@@ -47,7 +47,7 @@ Get the Doctrine Query Builder query :
 ```php
 class UserRepository extends ServiceEntityRepository
 {
-    public function createDovecotUserViewQuery()
+    public function createUserViewQuery()
     {
         $qb     = $this->createQueryBuilder('u');
 
@@ -65,6 +65,41 @@ class UserRepository extends ServiceEntityRepository
 Use the manager to handle your view
 
 ```php
+/**
+ * @var App\Repository\UserRepository $userRepository
+ */
+$query	= $userRepository->createUserViewQuery();
+
+/**
+ * Converts the Doctrine\ORM\Query $query in Doctrine\DBAL\Schema\View
+ * @var Mte\DoctrineViewsBundle\Doctrine\View\ViewManager $viewManager
+ * @see #Configuration
+ */
+$view 	= $viewManager->getViewFromQuery('my_user_view', $query);
+
+/**
+ * Creates the given view
+ */
+$viewManager->createView($view)
+
+/**
+ * Drops the given View if exists
+ * Creates the given view
+ */
+$viewManager->dropAndCreateView($view)
+
+/**
+ * Converts the Doctrine\ORM\Query $query in Doctrine\DBAL\Schema\View
+ * Creates the given view
+ */
+$viewManager->createViewFromQuery('my_user_view', $query)
+
+/**
+ * Converts the Doctrine\ORM\Query $query in Doctrine\DBAL\Schema\View
+ * Drops the given View if exists
+ * Creates the given view
+ */
+$viewManager->dropAndCreateViewFromQuery(string $name, Query $query)
 
 ```
 
