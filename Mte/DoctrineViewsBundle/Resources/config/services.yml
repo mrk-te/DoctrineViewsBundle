@@ -1,0 +1,7 @@
+parameters:
+    mte.doctrine_views.manager.class: 'Mte\DoctrineViewsBundle\Doctrine\View\ViewManager'
+
+#services:
+#    mte.doctrine_views.manager:
+#        class: '%mte.doctrine_views.manager.class%'
+#        public: false
