@@ -16,15 +16,11 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder    = new TreeBuilder();
-        $rootNode       = $treeBuilder->root('doctrine_views');
+        $rootNode       = $treeBuilder->root('mte_doctrine_views');
 
         $rootNode->children()
             ->arrayNode('dbal')
-                ->example(
-                    'ViewManager name => Doctrine\DBAL\Connection service'."\n".
-                    '# \'default\' => \'database_connection\''."\n".
-                    '# Generates a service mte.doctrine_views.manager.default connected to the database_connection DBAL service'
-                )
+                ->example(['default' => 'database_connection'])
                 ->useAttributeAsKey('name')
                 ->prototype('scalar')->end()->requiresAtLeastOneElement()
                 ->defaultValue([

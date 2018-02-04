@@ -3,7 +3,7 @@
     "description": "Generate MySQL views with Doctrine",
     "keywords": ["Doctrine","MySQL","Symfony","Database","views"],
     "homepage": "https://github.com/mrk-te/DoctrineViewsBundle",
-    "license": "GNU GPL",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Marc Teinturier",
